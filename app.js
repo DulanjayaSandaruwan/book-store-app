@@ -1,7 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const router = require("./routes/book-routes");
+const cors = require("cors");
 
 const app = express();
+
+app.use(express.json());
+app.use(cors());
+app.use("/books", router);
 
 mongoose.connect(
   "mongodb+srv://Dulanjaya:2LkelX6h2MeqdthD@cluster0.qul7p1k.mongodb.net/book-store?retryWrites=true&w=majority"
